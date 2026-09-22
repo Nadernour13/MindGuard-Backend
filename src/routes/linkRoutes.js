@@ -1,16 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const { requireAuth } = require("../middleware/auth");
-const { notImplemented } = require("../utils/stub");
+const linkController = require("../controllers/linkController");
 
-// NEW — FR-04, FR-05, FR-07 (missing from ANALYSIS.md's original endpoint list,
-// but required by the SRS and flagged in its own "Missing information" section)
-router.post("/invite", requireAuth, notImplemented("POST /api/links/invite"));
-router.post("/accept", requireAuth, notImplemented("POST /api/links/accept"));
-router.get("/caregivers", requireAuth, notImplemented("GET /api/links/caregivers"));
-router.get("/doctors", requireAuth, notImplemented("GET /api/links/doctors"));
-router.put("/caregiver/:linkId/permission", requireAuth, notImplemented("PUT /api/links/caregiver/:linkId/permission"));
-router.delete("/caregiver/:linkId", requireAuth, notImplemented("DELETE /api/links/caregiver/:linkId"));
-router.delete("/doctor/:linkId", requireAuth, notImplemented("DELETE /api/links/doctor/:linkId"));
+// FR-04, FR-05, FR-07 — now fully implemented (was stubbed before)
+router.post("/invite", requireAuth, linkController.createInvite);
+router.post("/accept", requireAuth, linkController.acceptInvite);
+router.get("/caregivers", requireAuth, linkController.getCaregivers);
+router.get("/doctors", requireAuth, linkController.getDoctors);
+router.put("/caregiver/:linkId/permission", requireAuth, linkController.updateCaregiverPermission);
+router.delete("/caregiver/:linkId", requireAuth, linkController.removeCaregiverLink);
+router.delete("/doctor/:linkId", requireAuth, linkController.removeDoctorLink);
 
 module.exports = router;

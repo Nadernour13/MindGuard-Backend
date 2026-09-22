@@ -1,17 +1,4 @@
-# MindGuard Backend (Node.js / Express)
 
-يطابق الـ contract الموجود في `mindguard_app/ANALYSIS.md` (ريبو يوسف) بالظبط في كل حاجة كانت موجودة عنده، وبيضيف الـ endpoints الناقصة (Links, Safe Zones, SmartWatch, Notifications, AI, Doctor, Profile) بنفس الأسلوب.
-
-## تشغيله على جهازك
-
-### 1. متطلبات
-- Node.js 18+ (نزّله من nodejs.org لو مش موجود)
-
-### 2. التثبيت
-```bash
-cd MindGuard-Backend-Node
-npm install
-```
 
 ### 3. الإعدادات
 ```bash
